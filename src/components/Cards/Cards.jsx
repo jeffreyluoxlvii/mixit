@@ -10,7 +10,7 @@ const Cards = ({data : { drinks }}) => {
     console.log(drinks)
     return (
         <div className = {styles.container}>
-            <Grid continer space={3} justify="center">
+            <Grid container space={3} justify="center">
                 {/*
                     xs = 12 for mobile devices
                     md = 3 for medium devices
