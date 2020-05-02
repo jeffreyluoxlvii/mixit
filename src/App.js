@@ -1,7 +1,7 @@
 import React from 'react';
 
 //imports from components
-import { Cards, NavBar } from './components';
+import { Cards, NavBar, SideBar } from './components';
 //import styles
 import styles from './App.module.css';
 
@@ -22,9 +22,10 @@ class App extends React.Component {
 
         return (
             <div className={styles.container}>
-                <NavBar />
-                <h1>Drink-Match.</h1>
-                <Cards data ={data}/>
+                {/*<NavBar />*/}
+                <SideBar />
+                {/*<h1>Drink-Match.</h1>
+                <Cards data ={data}/>*/}
             </div>
         )
     }
