@@ -1,12 +1,14 @@
 import React from 'react';
 
 //imports from components
-import { Cards, SideBar } from './components';
+import { Signin, SideBar } from './components';
 //import styles
 import styles from './App.module.css';
 
 //Cocktail data
 import { fetchData } from './api';
+
+
 
 class App extends React.Component {
 
@@ -23,8 +25,6 @@ class App extends React.Component {
         return (
             <div className={styles.container}>
                 <SideBar />
-                {/*<h1>Drink-Match.</h1>
-                <Cards data ={data}/>*/}
             </div>
         )
     }
