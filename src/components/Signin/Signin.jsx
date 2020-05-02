@@ -51,7 +51,6 @@ const Signin = () => {
     const classes = useStyles();
 
     return (
-        <div>
         <Container component="main" maxWidth="xs">
             <CssBaseline />
             <div className={classes.paper}>
@@ -115,7 +114,6 @@ const Signin = () => {
                 <Copyright />
             </Box>
         </Container>
-        </div>
     );
 }
 

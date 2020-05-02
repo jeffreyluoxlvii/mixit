@@ -36,6 +36,7 @@ class App extends React.Component {
             <div className={styles.container}>
                 <ThemeProvider theme={theme}>
                     {/* <SideBar /> */}
+                    <Signin />
                 </ThemeProvider>
             </div>
         )
