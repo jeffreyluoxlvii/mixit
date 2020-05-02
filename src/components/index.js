@@ -1,4 +1,4 @@
 // takes all the components and exports them from the components folder
-export { default as Cards } from './Cards/Cards';
-export {default as SideBar} from './SideBar/SideBar';
+export {default as NavSideBar} from './NavSideBar/NavSideBar';
+export {default as NavSideBarMobile} from './NavSideBarMobile/NavSideBarMobile';
 
