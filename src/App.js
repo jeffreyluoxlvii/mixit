@@ -35,8 +35,8 @@ class App extends React.Component {
         return (
             <div className={styles.container}>
                 <ThemeProvider theme={theme}>
-                    {/* <SideBar /> */}
-                    <Signin />
+                    <SideBar />
+                    {/*<Signin />*/}
                 </ThemeProvider>
             </div>
         )
