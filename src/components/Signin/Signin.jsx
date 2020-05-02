@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
     },
     avatar: {
         margin: theme.spacing(1),
-        backgroundColor: theme.palette.secondary.main,
+        backgroundColor: theme.palette.primary.main,
     },
     form: {
         width: '100%', // Fix IE 11 issue.
@@ -51,6 +51,7 @@ const Signin = () => {
     const classes = useStyles();
 
     return (
+        <div>
         <Container component="main" maxWidth="xs">
             <CssBaseline />
             <div className={classes.paper}>
@@ -114,6 +115,7 @@ const Signin = () => {
                 <Copyright />
             </Box>
         </Container>
+        </div>
     );
 }
 
