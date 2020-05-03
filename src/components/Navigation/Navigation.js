@@ -44,10 +44,6 @@ const useStyles = makeStyles((theme) => ({
       display: 'none',
     },
   },
-  center: {
-    alignItem:'center',
-  },
-  // necessary for content to be below app bar
   toolbar: theme.mixins.toolbar,
   drawerPaper: {
     width: drawerWidth,
@@ -169,8 +165,8 @@ function Navigation(props) {
           <Toolbar>
             <Grid
               container
+              item
               alignItems={"center"}
-              justify={"space-between"}
             >
               <Grid xs={1} item>
                   <IconButton
@@ -183,7 +179,7 @@ function Navigation(props) {
                   <MenuIcon />
                   </IconButton>
               </Grid>
-              <Grid xs={8} md={7} lg={7} xl={7} item>
+              <Grid container xs lg={12} justify={"center"}>
                 <Typography className={classes.typography} variant="h6" noWrap>
                   Drink Match
                 </Typography>
