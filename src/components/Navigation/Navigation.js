@@ -21,6 +21,8 @@ import FormControl from '@material-ui/core/FormControl';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
+import Box from '@material-ui/core/Box';
+import Grid from '@material-ui/core/Grid'
 
 const drawerWidth = 240;
 
@@ -36,10 +38,14 @@ const useStyles = makeStyles((theme) => ({
     zIndex: theme.zIndex.drawer + 1,
   },
   menuButton: {
+    justifySelf: "flex-start",
     marginRight: theme.spacing(2),
     [theme.breakpoints.up('sm')]: {
       display: 'none',
     },
+  },
+  center: {
+    alignItem:'center',
   },
   // necessary for content to be below app bar
   toolbar: theme.mixins.toolbar,
@@ -51,11 +57,14 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(3),
   },
   formControl: {
-    margin: theme.spacing(3),
+    margin: 0,
   },
   heading: {
-    fontSize: theme.typography.pxToRem(15),
+    fontSize: theme.typography.pxToRem(16),
     fontWeight: theme.typography.fontWeightRegular,
+  },
+  typography: {
+    fontSize: 25,
   },
 }));
 
@@ -157,20 +166,30 @@ function Navigation(props) {
     <div className={classes.root}>
       <CssBaseline />
       <AppBar position="fixed" className={classes.appBar}>
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            className={classes.menuButton}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap>
-            Drink Match
-          </Typography>
-        </Toolbar>
+          <Toolbar>
+            <Grid
+              container
+              alignItems={"center"}
+              justify={"space-between"}
+            >
+              <Grid xs={1} item>
+                  <IconButton
+                    color="inherit"
+                    aria-label="open drawer"
+                    edge="start"
+                    onClick={handleDrawerToggle}
+                    className={classes.menuButton}
+                  >
+                  <MenuIcon />
+                  </IconButton>
+              </Grid>
+              <Grid xs={8} md={7} lg={7} xl={7} item>
+                <Typography className={classes.typography} variant="h6" noWrap>
+                  Drink Match
+                </Typography>
+               </Grid>
+              </Grid>
+          </Toolbar>
       </AppBar>
       <nav className={classes.drawer} aria-label="mailbox folders">
         {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
