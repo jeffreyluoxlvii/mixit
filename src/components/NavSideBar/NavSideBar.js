@@ -66,7 +66,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function SideBar(props) {
+function NavSideBar(props) {
   const { window } = props;
   const classes = useStyles();
   const theme = useTheme();
@@ -213,13 +213,14 @@ function SideBar(props) {
       <main className={classes.content}>
         <div className={classes.toolbar} />
         <Typography paragraph>
+          .
         </Typography>
       </main>
     </div>
   );
 }
 
-SideBar.propTypes = {
+NavSideBar.propTypes = {
   /**
    * Injected by the documentation to work in an iframe.
    * You won't need it on your project.
@@ -227,4 +228,4 @@ SideBar.propTypes = {
   window: PropTypes.func,
 };
 
-export default SideBar;
+export default NavSideBar;
