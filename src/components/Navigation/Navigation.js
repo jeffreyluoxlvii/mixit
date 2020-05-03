@@ -17,11 +17,9 @@ import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import FormLabel from '@material-ui/core/FormLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import Checkbox from '@material-ui/core/Checkbox';
 
 const drawerWidth = 240;
@@ -31,16 +29,11 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
   },
   drawer: {
-    [theme.breakpoints.up('sm')]: {
-      width: drawerWidth,
-      flexShrink: 0,
-    },
+    width: drawerWidth,
+    flexShrink: 0,
   },
   appBar: {
-    [theme.breakpoints.up('sm')]: {
-      width: `calc(100% - ${drawerWidth}px)`,
-      marginLeft: drawerWidth,
-    },
+    zIndex: theme.zIndex.drawer + 1,
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -66,7 +59,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function NavSideBar(props) {
+function Navigation(props) {
   const { window } = props;
   const classes = useStyles();
   const theme = useTheme();
@@ -110,15 +103,15 @@ function NavSideBar(props) {
         <FormControl component="fieldset" className={classes.formControl}>
         <FormGroup>
           <FormControlLabel
-            control={<Checkbox checked={Vodka} onChange={handleChange} name="Vodka" />}
+            control={<Checkbox color = 'primary' checked={Vodka} onChange={handleChange} name="Vodka" />}
             label="Vodka"
           />
           <FormControlLabel
-            control={<Checkbox checked={Rum} onChange={handleChange} name="Rum" />}
+            control={<Checkbox color = 'primary' checked={Rum} onChange={handleChange} name="Rum" />}
             label="Rum"
           />
           <FormControlLabel
-            control={<Checkbox checked={Gin} onChange={handleChange} name="Gin" />}
+            control={<Checkbox color = 'primary' checked={Gin} onChange={handleChange} name="Gin" />}
             label="Gin"
           />
         </FormGroup>
@@ -140,15 +133,15 @@ function NavSideBar(props) {
         <FormControl component="fieldset" className={classes.formControl}>
         <FormGroup>
           <FormControlLabel
-            control={<Checkbox checked={Coke} onChange={handleChange} name="Coke" />}
+            control={<Checkbox color = 'primary' checked={Coke} onChange={handleChange} name="Coke" />}
             label="Coke"
           />
           <FormControlLabel
-            control={<Checkbox checked={Sprite} onChange={handleChange} name="Sprite" />}
+            control={<Checkbox color = 'primary' checked={Sprite} onChange={handleChange} name="Sprite" />}
             label="Sprite"
           />
           <FormControlLabel
-            control={<Checkbox checked={FantaO} onChange={handleChange} name="FantaO" />}
+            control={<Checkbox color = 'primary' checked={FantaO} onChange={handleChange} name="FantaO" />}
             label="Fanta Orange"
           />
         </FormGroup>
@@ -213,14 +206,13 @@ function NavSideBar(props) {
       <main className={classes.content}>
         <div className={classes.toolbar} />
         <Typography paragraph>
-          .
         </Typography>
       </main>
     </div>
   );
 }
 
-NavSideBar.propTypes = {
+Navigation.propTypes = {
   /**
    * Injected by the documentation to work in an iframe.
    * You won't need it on your project.
@@ -228,4 +220,4 @@ NavSideBar.propTypes = {
   window: PropTypes.func,
 };
 
-export default NavSideBar;
+export default Navigation;
