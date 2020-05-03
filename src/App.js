@@ -28,6 +28,18 @@ const theme = createMuiTheme({
         // E.g., shift from Red 500 to Red 300 or Red 700.
         tonalOffset: 0.2,
     },
+    typography: {
+        fontFamily: [
+            'Ubuntu',
+            'Roboto',
+            '"Helvetica Neue"',
+            'Arial',
+            'sans-serif',
+            '"Apple Color Emoji"',
+            '"Segoe UI Emoji"',
+            '"Segoe UI Symbol"',
+          ].join(','),
+      },
 });
 
 class App extends React.Component {
@@ -35,7 +47,7 @@ class App extends React.Component {
         return (
             <div className={styles.container}>
                 <ThemeProvider theme={theme}>
-                    {/* <SideBar /> */}
+                    <SideBar />
                     <Signin />
                 </ThemeProvider>
             </div>
