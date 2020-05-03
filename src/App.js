@@ -3,7 +3,7 @@ import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/core';
 
 //imports from components
-import { Signin, SideBar } from './components';
+import { Signin, Navigation } from './components';
 //import styles
 import styles from './App.module.css';
 
@@ -47,7 +47,8 @@ class App extends React.Component {
         return (
             <div className={styles.container}>
                 <ThemeProvider theme={theme}>
-                    <SideBar />
+                    <Navigation />
+                    {/*<Signin />*/}
                 </ThemeProvider>
             </div>
         )
