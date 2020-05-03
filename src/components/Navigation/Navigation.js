@@ -64,7 +64,7 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: theme.typography.fontWeightRegular,
   },
   typography: {
-    fontSize: 30,
+    fontSize: 25,
   },
 }));
 
