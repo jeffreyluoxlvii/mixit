@@ -4,30 +4,35 @@ import { Link } from 'react-router-dom';
 import { Typography, Button } from '@material-ui/core';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 
+import shakerImage from '../../images/shakeranddrink.png'
+
 const useStyles = makeStyles((theme) => ({
     root: {
         '& > *': {
             margin: theme.spacing(1),
         },
     },
+    container: {
+        display: 'flex',
+    },
     link: {
         textDecoration: 'none',
     }
-  }));
+}));
 
 const Landing = () => {
     const classes = useStyles();
     const theme = useTheme();
 
     return (
-        <div>
-            <img src="logo192.png" alt="logo"/>
+        <div className={classes.container}>
+            <img src={shakerImage} alt="shaker"/>
             <div>
                 <Typography variant="h1" component="h2" gutterBottom>
-                    h1. Heading
+                    Drink Match
                 </Typography>
-                <Typography variant="h2" gutterBottom>
-                    h2. Heading
+                <Typography variant="h4" gutterBottom>
+                    Your personal online bartender.
                 </Typography>
                 <Link to="/main" className={classes.link}>
                     <Button variant="contained" color="primary">
