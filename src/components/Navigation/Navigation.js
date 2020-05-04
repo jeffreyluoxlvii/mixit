@@ -220,7 +220,13 @@ function Navigation(props) {
       </nav>
       <main className={classes.content}>
         <div className={classes.toolbar} />
-        <Typography paragraph>
+        {/*
+        Main page content
+        with cards
+        Adjust based on user choices
+        */}
+        <Typography textAlign='left' paragraph>
+          hello
         </Typography>
       </main>
     </div>

@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { Navigation } from '../../components';
+import { Header } from '../../components';
 
 const Main = () => {
     return (
-        <Navigation />
+        <Header />
     )
 }
 
