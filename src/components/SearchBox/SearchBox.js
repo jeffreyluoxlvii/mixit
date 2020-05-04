@@ -64,7 +64,7 @@ const useStyles = makeStyles((theme) => ({
       padding: theme.spacing(2),
   },
   textField: {
-    width: '110ch',
+    width: '100%',
   },
 }));
 
@@ -100,7 +100,7 @@ export default function ComplexGrid() {
                             Select from Popular Ingredients:
                         </Typography>
                     </Grid>
-                    <Grid item xs={12} sm={3} className={classes.popularCheckbox}>
+                    <Grid item xs={12} sm={6} md={3} className={classes.popularCheckbox}>
                         <FormControl component="fieldset" className={classes.formControl}>
                         <FormGroup>
                         <FormControlLabel
@@ -110,7 +110,7 @@ export default function ComplexGrid() {
                         </FormGroup>
                         </FormControl>
                     </Grid>
-                    <Grid item xs={12} sm={3} className={classes.popularCheckbox}>
+                    <Grid item xs={12} sm={6} md={3} className={classes.popularCheckbox}>
                     <FormControl component="fieldset" className={classes.formControl}>
                         <FormGroup>
                         <FormControlLabel
@@ -120,7 +120,7 @@ export default function ComplexGrid() {
                         </FormGroup>
                         </FormControl>
                     </Grid>
-                    <Grid item xs={12} sm={3} className={classes.popularCheckbox}>
+                    <Grid item xs={12} sm={6} md={3} className={classes.popularCheckbox}>
                         <FormControl component="fieldset" className={classes.formControl}>
                         <FormGroup>
                         <FormControlLabel
@@ -130,17 +130,17 @@ export default function ComplexGrid() {
                         </FormGroup>
                         </FormControl>
                     </Grid>
-                    <Grid item xs={12} sm={3} className={classes.popularCheckbox}>
+                    <Grid item xs={12} sm={6} md={3} className={classes.popularCheckbox}>
                         <FormControl component="fieldset" className={classes.formControl}>
                         <FormGroup>
                         <FormControlLabel
-                            control={<Checkbox color = 'primary' checked={clubSoda} onChange={clubSoda} name="clubSoda" />}
+                            control={<Checkbox color = 'primary' checked={clubSoda} onChange={handleChange} name="clubSoda" />}
                             label="Club Soda"
                         />
                         </FormGroup>
                         </FormControl>
                     </Grid>
-                    <Grid item xs={12} sm={3} className={classes.popularCheckbox}>
+                    <Grid item xs={12} sm={6} md={3} className={classes.popularCheckbox}>
                         <FormControl component="fieldset" className={classes.formControl}>
                         <FormGroup>
                         <FormControlLabel
@@ -150,7 +150,7 @@ export default function ComplexGrid() {
                         </FormGroup>
                         </FormControl>
                     </Grid>
-                    <Grid item xs={12} sm={3} className={classes.popularCheckbox}>
+                    <Grid item xs={12} sm={6} md={3} className={classes.popularCheckbox}>
                     <FormControl component="fieldset" className={classes.formControl}>
                         <FormGroup>
                         <FormControlLabel
@@ -160,7 +160,7 @@ export default function ComplexGrid() {
                         </FormGroup>
                         </FormControl>
                     </Grid>
-                    <Grid item xs={12} sm={3} className={classes.popularCheckbox}>
+                    <Grid item xs={12} sm={6} md={3} className={classes.popularCheckbox}>
                         <FormControl component="fieldset" className={classes.formControl}>
                         <FormGroup>
                         <FormControlLabel
@@ -170,7 +170,7 @@ export default function ComplexGrid() {
                         </FormGroup>
                         </FormControl>
                     </Grid>
-                    <Grid item xs={12} sm={3} className={classes.popularCheckbox}>
+                    <Grid item xs={12} sm={6} md={3} className={classes.popularCheckbox}>
                         <FormControl component="fieldset" className={classes.formControl}>
                         <FormGroup>
                         <FormControlLabel
