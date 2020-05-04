@@ -3,21 +3,21 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Typography, Button } from '@material-ui/core';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
+import ButtonBase from '@material-ui/core/ButtonBase';
 
 import shakerImage from '../../images/shakeranddrink.png'
 
 const useStyles = makeStyles((theme) => ({
-    root: {
-        '& > *': {
-            margin: theme.spacing(1),
-        },
-    },
-    container: {
+    wrapper: {
         display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        minHeight: '90vh',
     },
-    link: {
-        textDecoration: 'none',
-    }
+
 }));
 
 const Landing = () => {
@@ -25,23 +25,25 @@ const Landing = () => {
     const theme = useTheme();
 
     return (
-        <div className={classes.container}>
-            <img src={shakerImage} alt="shaker"/>
-            <div>
-                <Typography variant="h1" component="h2" gutterBottom>
-                    Drink Match
-                </Typography>
-                <Typography variant="h4" gutterBottom>
-                    Your personal online bartender.
-                </Typography>
-                <Link to="/main" className={classes.link}>
-                    <Button variant="contained" color="primary">
-                        Make me a drink
+        <div className={classes.wrapper}>
+            <Grid container direction="row" justify="center" alignItems="center">
+                <Grid item sm={6}>
+                    
+                </Grid>
+                <Grid item>
+                    <Typography variant="h1">
+                        mixit
+                    </Typography>
+                    <Typography variant="h4" className={classes.colored}>
+                        your own personal bartender.
+                    </Typography>
+                    <Button>
+                        Click
                     </Button>
-                </Link>
-            </div>
+                </Grid>
+            </Grid>
         </div>
-    )
+    );
 }
 
 export default Landing;
