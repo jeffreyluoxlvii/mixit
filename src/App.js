@@ -1,9 +1,10 @@
 import React from 'react';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/core';
+import { Route, Switch } from 'react-router-dom';
 
 //imports from components
-import { Signin, Navigation } from './components';
+import { Main, Landing } from './pages';
 //import styles
 import styles from './App.module.css';
 
@@ -47,8 +48,10 @@ class App extends React.Component {
         return (
             <div className={styles.container}>
                 <ThemeProvider theme={theme}>
-                    <Navigation />
-                    {/*<Signin />*/}
+                    <Switch>
+                        <Route path="/" component={Landing} exact />
+                        <Route path="/main" component={Main} />
+                    </Switch>
                 </ThemeProvider>
             </div>
         )
