@@ -10,17 +10,20 @@ const useStyles = makeStyles((theme) => ({
             margin: theme.spacing(1),
         },
     },
+    container: {
+        display: 'flex',
+    },
     link: {
         textDecoration: 'none',
     }
-  }));
+}));
 
 const Landing = () => {
     const classes = useStyles();
     const theme = useTheme();
 
     return (
-        <div>
+        <div className={classes.container}>
             <img src="logo192.png" alt="logo"/>
             <div>
                 <Typography variant="h1" component="h2" gutterBottom>
