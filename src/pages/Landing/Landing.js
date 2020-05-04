@@ -2,7 +2,10 @@ import React from 'react';
 
 const Landing = () => {
     return (
-        <h1>Drink Match Landing Page</h1>
+        <div>
+            <h1>Drink Match</h1>
+            <h3>Your personal online bartender.</h3>
+        </div>
     )
 }
 

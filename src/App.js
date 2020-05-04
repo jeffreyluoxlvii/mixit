@@ -46,14 +46,14 @@ const theme = createMuiTheme({
 class App extends React.Component {
     render() {
         return (
-            <div className={styles.container}>
+            <main>
                 <ThemeProvider theme={theme}>
                     <Switch>
                         <Route path="/" component={Landing} exact />
                         <Route path="/main" component={Main} />
                     </Switch>
                 </ThemeProvider>
-            </div>
+            </main>
         )
     }
 }
