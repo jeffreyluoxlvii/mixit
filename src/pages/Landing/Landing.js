@@ -6,10 +6,13 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-      '& > *': {
-        margin: theme.spacing(1),
-      },
+        '& > *': {
+            margin: theme.spacing(1),
+        },
     },
+    link: {
+        textDecoration: 'none',
+    }
   }));
 
 const Landing = () => {
@@ -26,7 +29,7 @@ const Landing = () => {
                 <Typography variant="h2" gutterBottom>
                     h2. Heading
                 </Typography>
-                <Link to="/main" style={{ textDecoration: 'none' }}>
+                <Link to="/main" className={classes.link}>
                     <Button variant="contained" color="primary">
                         Make me a drink
                     </Button>
