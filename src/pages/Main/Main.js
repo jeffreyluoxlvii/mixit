@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { Header, SearchBox } from '../../components';
+import { Header, SearchBox, SearchBoxTesting } from '../../components';
 
 const Main = () => {
     return (
         <div>
             <Header />
-            <SearchBox />
+            <SearchBoxTesting />
         </div>
         
     )
