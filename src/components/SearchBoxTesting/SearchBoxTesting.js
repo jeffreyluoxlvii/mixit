@@ -18,6 +18,8 @@ import Autocomplete from '@material-ui/lab/Autocomplete';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
 
+import { fetchIngredient } from './api';
+
 
 const popularDrinks = [
     {title: 'Vodka', percentage: '40%'},
@@ -78,7 +80,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ComplexGrid() {
   const classes = useStyles();
-
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
   const [state, setState] = React.useState({
