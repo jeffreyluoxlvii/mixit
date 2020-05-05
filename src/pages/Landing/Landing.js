@@ -1,10 +1,9 @@
 import React from 'react';
 
 import { Link } from 'react-router-dom';
-import { Typography, Button } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
 import ButtonBase from '@material-ui/core/ButtonBase';
 
 import shakerImage from '../../images/shakeranddrink.png'
