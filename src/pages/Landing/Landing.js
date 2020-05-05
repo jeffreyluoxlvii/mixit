@@ -25,6 +25,11 @@ const useStyles = makeStyles((theme) => ({
     centered: {
         textAlign: 'center',
     },
+    image: {
+        height: 'auto',
+        width: '100%',
+        maxWidth: '512px',
+    }
 }));
 
 const Landing = () => {
@@ -34,7 +39,7 @@ const Landing = () => {
     return (
         <div className={classes.wrapper}>
             <Grid container direction="row" justify="center" alignItems="center">
-                <Grid item sm={6}>
+                <Grid item md={6}>
                     <img alt="shaker" src={shakerImage} className={classes.image}/>
                 </Grid>
                 <Grid item className={classes.centered}>
