@@ -12,12 +12,19 @@ import shakerImage from '../../images/shakeranddrink.png'
 const useStyles = makeStyles((theme) => ({
     wrapper: {
         display: 'flex',
-        flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
         minHeight: '90vh',
     },
-
+    button: {
+        padding: '10px',
+        margin: '20px',
+        border: '5px solid',
+        borderRadius: '30px',
+    },
+    centered: {
+        textAlign: 'center',
+    },
 }));
 
 const Landing = () => {
@@ -28,18 +35,20 @@ const Landing = () => {
         <div className={classes.wrapper}>
             <Grid container direction="row" justify="center" alignItems="center">
                 <Grid item sm={6}>
-                    
+                    <img alt="shaker" src={shakerImage} className={classes.image}/>
                 </Grid>
-                <Grid item>
+                <Grid item className={classes.centered}>
                     <Typography variant="h1">
                         mixit
                     </Typography>
-                    <Typography variant="h4" className={classes.colored}>
-                        your own personal bartender.
+                    <Typography variant="h4">
+                        your personal online bartender.
                     </Typography>
-                    <Button>
-                        Click
-                    </Button>
+                    <div>
+                        <ButtonBase focusRipple className={classes.button}>
+                            <Typography>create your mix now</Typography>
+                        </ButtonBase>
+                    </div>
                 </Grid>
             </Grid>
         </div>
