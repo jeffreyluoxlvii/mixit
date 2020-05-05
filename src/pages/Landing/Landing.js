@@ -1,10 +1,9 @@
 import React from 'react';
 
 import { Link } from 'react-router-dom';
-import { Typography, Button } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
 import ButtonBase from '@material-ui/core/ButtonBase';
 
 import shakerImage from '../../images/shakeranddrink.png'
@@ -25,6 +24,15 @@ const useStyles = makeStyles((theme) => ({
     centered: {
         textAlign: 'center',
     },
+    image: {
+        height: 'auto',
+        width: '100%',
+        maxWidth: '512px',
+    },
+    link: {
+        textDecoration: 'none',
+        color: '#000',
+    }
 }));
 
 const Landing = () => {
@@ -34,7 +42,7 @@ const Landing = () => {
     return (
         <div className={classes.wrapper}>
             <Grid container direction="row" justify="center" alignItems="center">
-                <Grid item sm={6}>
+                <Grid item md={6}>
                     <img alt="shaker" src={shakerImage} className={classes.image}/>
                 </Grid>
                 <Grid item className={classes.centered}>
@@ -45,9 +53,11 @@ const Landing = () => {
                         your personal online bartender.
                     </Typography>
                     <div>
-                        <ButtonBase focusRipple className={classes.button}>
-                            <Typography>create your mix now</Typography>
-                        </ButtonBase>
+                        <Link to="/main" className={classes.link} >
+                            <ButtonBase focusRipple className={classes.button}>
+                                <Typography>create your mix now</Typography>
+                            </ButtonBase>
+                        </Link>
                     </div>
                 </Grid>
             </Grid>
