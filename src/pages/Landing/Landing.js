@@ -29,6 +29,10 @@ const useStyles = makeStyles((theme) => ({
         height: 'auto',
         width: '100%',
         maxWidth: '512px',
+    },
+    link: {
+        textDecoration: 'none',
+        color: '#000',
     }
 }));
 
@@ -50,9 +54,11 @@ const Landing = () => {
                         your personal online bartender.
                     </Typography>
                     <div>
-                        <ButtonBase focusRipple className={classes.button}>
-                            <Typography>create your mix now</Typography>
-                        </ButtonBase>
+                        <Link to="/main" className={classes.link} >
+                            <ButtonBase focusRipple className={classes.button}>
+                                <Typography>create your mix now</Typography>
+                            </ButtonBase>
+                        </Link>
                     </div>
                 </Grid>
             </Grid>
