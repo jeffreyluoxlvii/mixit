@@ -18,12 +18,12 @@ import Autocomplete from '@material-ui/lab/Autocomplete';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
 
-import { fetchIngredient } from './api';
+import { fetchIngredient } from './api'; 
 
 
 const popularDrinks = [
-    {title: 'Vodka', percentage: '40%'},
-    {title: 'Coke', percentage: '0%'},
+    {title: 'Vodka'},
+    {title: 'Coke'},
 ];
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -81,6 +81,10 @@ const useStyles = makeStyles((theme) => ({
 export default function ComplexGrid() {
   const classes = useStyles();
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  async componentDidMount() {
+    const data = await fetchIngredient();
+    console.log(data);
+  }
 
   const [state, setState] = React.useState({
     Vodka: false,
