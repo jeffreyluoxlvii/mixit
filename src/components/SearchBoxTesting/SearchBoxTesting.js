@@ -14,8 +14,17 @@ import TextField from '@material-ui/core/TextField';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import InputAdornment from '@material-ui/core/InputAdornment';
+import Autocomplete from '@material-ui/lab/Autocomplete';
+import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
+import CheckBoxIcon from '@material-ui/icons/CheckBox';
+
+import { fetchIngredient } from './api'; 
 
 
+const popularDrinks = [
+    {title: 'Vodka'},
+    {title: 'Coke'},
+];
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -71,8 +80,11 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ComplexGrid() {
   const classes = useStyles();
-
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  async componentDidMount() {
+    const data = await fetchIngredient();
+    console.log(data);
+  }
 
   const [state, setState] = React.useState({
     Vodka: false,
@@ -91,6 +103,8 @@ export default function ComplexGrid() {
   const { Vodka, Rum, Gin, clubSoda, Sprite, orangeJuice, coke, pinkLemonade } = state;
   const error = [Vodka, Rum, Gin, clubSoda, Sprite, orangeJuice, coke, pinkLemonade].filter((v) => v).length !== 2;
 
+  const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
+  const checkedIcon = <CheckBoxIcon fontSize="small" />;
 
   return (
     <div className={classes.root}>
@@ -204,6 +218,50 @@ export default function ComplexGrid() {
                         <Typography>
                             Your Ingredients:
                         </Typography>
+                    </Grid>
+                    <Grid item xs={12} className = {classes.selectionBar}>
+                        <Autocomplete
+                            multiple
+                            id="checkboxes-tags-demo"
+                            options={popularDrinks}
+                            disableCloseOnSelect
+                            getOptionLabel={(option) => option.title}
+                            renderOption={(option, { selected }) => (
+                                <React.Fragment>
+                                <Checkbox
+                                    color='primary'
+                                    icon={icon}
+                                    checkedIcon={checkedIcon}
+                                    style={{ marginRight: 5 }}
+                                    checked={selected}
+                                />
+                                {option.percentage}
+                                {option.title}
+                                </React.Fragment>
+                            )}
+                            style={{ width: "auto" }}
+                            renderInput={(params) => (
+                                <TextField {...params}  variant="outlined"/>
+                            )}
+                        />
+                        {/*<Autocomplete
+                            multiple
+                            options={popularDrinks}
+                            renderOption={(option, {state}) => (
+                                <React.Fragment>
+                                    <Checkbox
+                                        icon={icon}
+                                        checkedIcon={checkedIcon}
+                                        tyle={{ marginRight: 8 }}
+                                        checked={state}
+                                    />
+                                    {option.title}
+                                </React.Fragment>
+                            )}
+                            renderInput={(params) => (
+                                <TextField {...params} variant="outlined" />
+                            )}
+                            />*/}
                     </Grid>
                 </Grid>
             </Paper>
