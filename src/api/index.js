@@ -1,16 +1,12 @@
 import axios from 'axios';
 
-const urlIngredient = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list';
+const ingredientsUrl = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list';
 
-export const fetchIngredient = async () => {
+export const fetchIngredients = async () => {
     try {
-        const { data } = await axios.get(urlIngredient);
+        const { data: { drinks }} = await axios.get(ingredientsUrl);
 
-        const ingredients = {
-            drinksIng: data.drinks
-        }
-
-        return ingredients;
+        return drinks.map((ingredient) => ({ title: ingredient.strIngredient1 }));
     } catch (error) {
         console.log(error);
     }

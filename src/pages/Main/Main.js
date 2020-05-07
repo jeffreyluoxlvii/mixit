@@ -1,14 +1,31 @@
 import React from 'react';
 
-import { Header, SearchBox, SearchBoxTesting } from '../../components';
+import { Header, Autocompleter } from '../../components';
+import { Typography } from '@material-ui/core';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+    wrapper: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        minHeight: '90vh',
+    },
+    padding: {
+        padding: '30px',
+    }
+}));
 
 const Main = () => {
+    const classes = useStyles();
+    const theme = useTheme();
+
     return (
-        <div>
+        <div className={classes.wrapper}>
             <Header />
-            <SearchBoxTesting />
+            <Typography variant="h4" className={classes.padding}>enter ingredients</Typography>
+            <Autocompleter />
         </div>
-        
     )
 }
 
