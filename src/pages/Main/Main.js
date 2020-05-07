@@ -6,7 +6,7 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Fab from '@material-ui/core/Fab';
-import HomeIcon from '@material-ui/icons/Home';
+import LocalDrinkIcon from '@material-ui/icons/LocalDrink';
 
 const useStyles = makeStyles((theme) => ({
     wrapper: {
@@ -54,7 +54,7 @@ const Main = () => {
             <div>
                 <Link to="" className={classes.link} >
                     <Fab color="primary" className={classes.fab} aria-label="Home">
-                        <HomeIcon />
+                        <LocalDrinkIcon />
                     </Fab>
                 </Link>
             </div>
