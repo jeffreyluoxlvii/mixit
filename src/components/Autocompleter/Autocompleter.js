@@ -21,11 +21,6 @@ export default function Autocompleter() {
 
     }, []);
 
-<<<<<<< HEAD
-=======
-  console.log(ingredients);
-
->>>>>>> 895633cb7c873d762b2d12737729e495753c8bde
   return (
     <Autocomplete
       multiple
