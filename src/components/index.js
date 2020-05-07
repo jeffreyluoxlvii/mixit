@@ -1,4 +1,4 @@
 // takes all the components and exports them from the components folder
-export { default as Navigation } from './Navigation/Navigation';
-export { default as Signin } from './Signin/Signin';
-
+export { default as Header } from './Header/Header';
+export { default as SearchBox} from './SearchBox/SearchBox';
+export { default as Autocompleter} from './Autocompleter/Autocompleter';
