@@ -21,8 +21,6 @@ export default function Autocompleter() {
 
     }, []);
 
-  console.log(ingredients);
-
   return (
     <Autocomplete
       multiple
