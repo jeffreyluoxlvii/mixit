@@ -4,7 +4,7 @@ import { ThemeProvider } from '@material-ui/core';
 import { Route, Switch } from 'react-router-dom';
 
 //imports from components
-import { Main, Landing } from './pages';
+import { Main, Landing, Result } from './pages';
 //import styles
 import styles from './App.module.css';
 
@@ -51,6 +51,7 @@ class App extends React.Component {
                     <Switch>
                         <Route path="/" component={Landing} exact />
                         <Route path="/main" component={Main} />
+                        <Route path="/result" component={Result} />
                     </Switch>
                 </ThemeProvider>
             </main>
