@@ -3,6 +3,8 @@ import React from 'react';
 import { Header, Autocompleter } from '../../components';
 import { Typography } from '@material-ui/core';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { Link } from 'react-router-dom';
+import ButtonBase from '@material-ui/core/ButtonBase';
 
 const useStyles = makeStyles((theme) => ({
     wrapper: {
@@ -13,6 +15,16 @@ const useStyles = makeStyles((theme) => ({
     },
     padding: {
         padding: '30px',
+    },
+    button: {
+        padding: '10px',
+        margin: '20px',
+        border: '5px solid',
+        borderRadius: '30px',
+    },
+    link: {
+        textDecoration: 'none',
+        color: '#000',
     }
 }));
 
@@ -25,6 +37,13 @@ const Main = () => {
             <Header />
             <Typography variant="h4" className={classes.padding}>enter ingredients</Typography>
             <Autocompleter />
+            <div>
+                <Link to="/result" className={classes.link} >
+                    <ButtonBase focusRipple className={classes.button}>
+                        <Typography>display your drinks</Typography>
+                    </ButtonBase>
+                </Link>
+            </div>
         </div>
     )
 }
