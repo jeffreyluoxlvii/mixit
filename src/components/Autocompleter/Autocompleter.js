@@ -4,13 +4,14 @@ import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
-import { fetchIngredients } from '../../api'
+import { fetchIngredients } from '../../api';
 
 const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
 
-export default function Autocompleter() {
 
+export default function Autocompleter() {
+  
   const [ingredients, setIngredients] = useState([]);
 
     useEffect(() => {
@@ -40,7 +41,7 @@ export default function Autocompleter() {
           {option.title}
         </React.Fragment>
       )}
-      style={{ width: 500 }}
+      style={{ width: '80%' }}
       renderInput={(params) => (
         <TextField {...params} variant="outlined" label="ingredients" placeholder="ingredients" />
       )}
