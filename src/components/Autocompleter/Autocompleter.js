@@ -31,6 +31,7 @@ export default function Autocompleter() {
       renderOption={(option, { selected }) => (
         <React.Fragment>
           <Checkbox
+            color = 'primary'
             icon={icon}
             checkedIcon={checkedIcon}
             style={{ marginRight: 8 }}
