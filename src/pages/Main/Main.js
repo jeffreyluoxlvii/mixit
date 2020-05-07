@@ -5,6 +5,8 @@ import { Typography } from '@material-ui/core';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
 import ButtonBase from '@material-ui/core/ButtonBase';
+import Fab from '@material-ui/core/Fab';
+import HomeIcon from '@material-ui/icons/Home';
 
 const useStyles = makeStyles((theme) => ({
     wrapper: {
@@ -18,14 +20,19 @@ const useStyles = makeStyles((theme) => ({
     },
     button: {
         padding: '10px',
-        margin: '20px',
+        margin: '30px',
         border: '5px solid',
         borderRadius: '30px',
     },
     link: {
         textDecoration: 'none',
         color: '#000',
-    }
+    },
+    fab: {
+        position: 'absolute',
+        bottom: theme.spacing(2),
+        right: theme.spacing(2),
+    },
 }));
 
 const Main = () => {
@@ -42,6 +49,13 @@ const Main = () => {
                     <ButtonBase focusRipple className={classes.button}>
                         <Typography>display your drinks</Typography>
                     </ButtonBase>
+                </Link>
+            </div>
+            <div>
+                <Link to="" className={classes.link} >
+                    <Fab color="primary" className={classes.fab} aria-label="Home">
+                        <HomeIcon />
+                    </Fab>
                 </Link>
             </div>
         </div>
