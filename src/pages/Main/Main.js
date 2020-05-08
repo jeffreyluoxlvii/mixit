@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
     button: {
         padding: '10px',
         margin: '30px',
-        border: '5px solid',
+        border: '3px solid',
         borderRadius: '30px',
     },
     link: {
