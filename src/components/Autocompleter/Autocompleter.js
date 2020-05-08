@@ -2,12 +2,12 @@ import React, {useState, useEffect} from 'react';
 import Checkbox from '@material-ui/core/Checkbox';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
-import CheckBoxIcon from '@material-ui/icons/CheckBox';
+import LocalBarOutlinedIcon from '@material-ui/icons/LocalBarOutlined';
+import LocalBarIcon from '@material-ui/icons/LocalBar';
 import { fetchIngredients } from '../../api';
 
-const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
-const checkedIcon = <CheckBoxIcon fontSize="small" />;
+const icon = <LocalBarOutlinedIcon fontSize="small" />;
+const checkedIcon = <LocalBarIcon fontSize="small" />;
 
 
 export default function Autocompleter() {

@@ -4,7 +4,7 @@ import { Header, Autocompleter } from '../../components';
 import { Typography } from '@material-ui/core';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Fab from '@material-ui/core/Fab';
-import LocalDrinkIcon from '@material-ui/icons/LocalDrink';
+import LocalBarTwoToneIcon from '@material-ui/icons/LocalBarTwoTone';
 import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
@@ -35,7 +35,7 @@ const Result = () => {
             <div>
                 <Link to="" className={classes.link} >
                     <Fab color="primary" className={classes.fab} aria-label="Home">
-                        <LocalDrinkIcon />
+                        <LocalBarTwoToneIcon />
                     </Fab>
                 </Link>
             </div>

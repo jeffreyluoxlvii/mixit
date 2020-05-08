@@ -6,14 +6,14 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Fab from '@material-ui/core/Fab';
-import LocalDrinkIcon from '@material-ui/icons/LocalDrink';
+import LocalBarTwoToneIcon from '@material-ui/icons/LocalBarTwoTone';
 
 const useStyles = makeStyles((theme) => ({
     wrapper: {
         display: 'flex',
-        flexDirection: 'column',
         alignItems: 'center',
-        minHeight: '90vh',
+        flexDirection:'column',
+        paddingTop:'10%'
     },
     padding: {
         padding: '30px',
@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
     button: {
         padding: '10px',
         margin: '30px',
-        border: '5px solid',
+        border: '3px solid',
         borderRadius: '30px',
     },
     link: {
@@ -54,7 +54,7 @@ const Main = () => {
             <div>
                 <Link to="" className={classes.link} >
                     <Fab color="primary" className={classes.fab} aria-label="Home">
-                        <LocalDrinkIcon />
+                        <LocalBarTwoToneIcon />
                     </Fab>
                 </Link>
             </div>
