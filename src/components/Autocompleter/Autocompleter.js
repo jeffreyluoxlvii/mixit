@@ -14,13 +14,13 @@ export default function Autocompleter() {
   
   const [ingredients, setIngredients] = useState([]);
 
-    useEffect(() => {
-        const fetchAPI = async () => {
-            setIngredients(await fetchIngredients());
-        }
-        fetchAPI();
+  useEffect(() => {
+      const fetchAPI = async () => {            
+        setIngredients(await fetchIngredients());
+      }
+      fetchAPI();
 
-    }, []);
+  }, []);
 
   return (
     <Autocomplete
