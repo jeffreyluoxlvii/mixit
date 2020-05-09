@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Header, Autocompleter } from '../../components';
+import { Header, DrinkCardList } from '../../components';
 import { Typography } from '@material-ui/core';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Fab from '@material-ui/core/Fab';
