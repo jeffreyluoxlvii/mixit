@@ -32,19 +32,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const DrinkCard = () => {
+const DrinkCard = (props) => {
   const classes = useStyles();
-
+  /**
+   * this.props.name
+   * this.props.image
+   */
   return (
     <Card className={classes.root}>
       <CardHeader
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        }
         title="Shrimp and Chorizo Paella"
-        subheader="September 14, 2016"
       />
       <CardMedia
         className={classes.media}
@@ -52,10 +49,6 @@ const DrinkCard = () => {
         title="Paella dish"
       />
       <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p">
-          This impressive paella is a perfect party dish and a fun meal to cook together with your
-          guests. Add 1 cup of frozen peas along with the mussels, if you like.
-        </Typography>
       </CardContent>
     </Card>
   );

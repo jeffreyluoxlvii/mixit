@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Header, DrinkCardList } from '../../components';
+import { Header, DrinkCardList, DrinkCard } from '../../components';
 import { Typography } from '@material-ui/core';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Fab from '@material-ui/core/Fab';
@@ -32,6 +32,7 @@ const Result = () => {
         <div className={classes.wrapper}>
             <Header />
             <Typography variant="h4" className={classes.padding}>Here are the drinks you can make:</Typography>
+            <DrinkCard />
             <div>
                 <Link to="" className={classes.link} >
                     <Fab color="primary" className={classes.fab} aria-label="Home">
