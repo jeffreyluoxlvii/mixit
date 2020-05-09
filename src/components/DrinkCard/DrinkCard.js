@@ -41,15 +41,12 @@ const DrinkCard = (props) => {
   return (
     <Card className={classes.root}>
       <CardHeader
-        title="Shrimp and Chorizo Paella"
+        title={props.name}
       />
       <CardMedia
         className={classes.media}
-        image="/static/images/cards/paella.jpg"
-        title="Paella dish"
+        image={props.image}
       />
-      <CardContent>
-      </CardContent>
     </Card>
   );
 }
