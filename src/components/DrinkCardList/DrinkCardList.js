@@ -1,5 +1,5 @@
 import React from 'react';
-import DrinkCard from '../../components'
+import { DrinkCard } from '../../components/'
 import { Container } from '@material-ui/core'
 
 const DrinkCardList = ({ drinks }) => {
@@ -19,4 +19,4 @@ const DrinkCardList = ({ drinks }) => {
         </Container>
     )
 }
-export default CardList;
+export default DrinkCardList;
