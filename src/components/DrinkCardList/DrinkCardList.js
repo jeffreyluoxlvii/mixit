@@ -7,8 +7,8 @@ const DrinkCardList = ({ drinks }) => {
         return (
             <DrinkCard
                 key={i}
-                name={drinks[i].name}
-                image={drinks[i].image}
+                name={drinks[i].strDrink}
+                image={drinks[i].strDrinkThumb}
             />
         );
     })
