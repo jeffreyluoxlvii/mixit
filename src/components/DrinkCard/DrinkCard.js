@@ -1,13 +1,13 @@
-import React from './node_modules/react';
-import { makeStyles } from './node_modules/@material-ui/core/styles';
-import Card from './node_modules/@material-ui/core/Card';
-import CardHeader from './node_modules/@material-ui/core/CardHeader';
-import CardMedia from './node_modules/@material-ui/core/CardMedia';
-import CardContent from './node_modules/@material-ui/core/CardContent';
-import IconButton from './node_modules/@material-ui/core/IconButton';
-import Typography from './node_modules/@material-ui/core/Typography';
-import { red } from './node_modules/@material-ui/core/colors';
-import MoreVertIcon from './node_modules/@material-ui/icons/MoreVert';
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardHeader from '@material-ui/core/CardHeader';
+import CardMedia from '@material-ui/core/CardMedia';
+import CardContent from '@material-ui/core/CardContent';
+import IconButton from '@material-ui/core/IconButton';
+import Typography from '@material-ui/core/Typography';
+import { red } from '@material-ui/core/colors';
+import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function DrinkCard() {
+const DrinkCard = () => {
   const classes = useStyles();
 
   return (
@@ -60,3 +60,4 @@ export default function DrinkCard() {
     </Card>
   );
 }
+export default DrinkCard;
