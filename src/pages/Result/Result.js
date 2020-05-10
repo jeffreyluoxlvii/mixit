@@ -1,4 +1,3 @@
-
 import React, {useState, useEffect} from 'react';
 import { Header, DrinkCardList, DrinkCard, Scroll } from '../../components';
 import { Typography } from '@material-ui/core';
@@ -6,7 +5,7 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Fab from '@material-ui/core/Fab';
 import LocalBarTwoToneIcon from '@material-ui/icons/LocalBarTwoTone';
 import { Link } from 'react-router-dom';
-import { fetchDrinks } from '../../api';
+import { fetchDrinksArrayTest } from '../../api';
 
 const useStyles = makeStyles((theme) => ({
     wrapper: {
@@ -33,7 +32,7 @@ const Result = () => {
 
     useEffect(() => {
         const fetchAPI = async () => {
-            setDrinks(await fetchDrinks());
+            setDrinks(await fetchDrinksArrayTest());
         }
         fetchAPI();
     }, []);
