@@ -63,7 +63,7 @@ class App extends React.Component {
                     <Switch>
                         <Route path="/" component={Landing} exact />
                         <Route path="/main" render={(props) => <Main {...props} tagChange={this.onTagsChange} />} />
-                        <Route path="/result" component={Result} />
+                        <Route path="/result" render={(props) => <Result {...props} ingredients={this.state.selectedIngredients} />} />
                     </Switch>
                 </ThemeProvider>
             </main>
