@@ -44,13 +44,25 @@ const theme = createMuiTheme({
 });
 
 class App extends React.Component {
+    state = {
+        selectedIngredients: [],
+    }
+
+    onTagsChange = (event, values) => {
+        this.setState({
+          selectedIngredients: values
+        }, () => {
+          console.log(this.state.selectedIngredients);
+        });
+    }
+
     render() {
         return (
             <main>
                 <ThemeProvider theme={theme}>
                     <Switch>
                         <Route path="/" component={Landing} exact />
-                        <Route path="/main" component={Main} />
+                        <Route path="/main" render={(props) => <Main {...props} tagChange={this.onTagsChange} />} />
                         <Route path="/result" component={Result} />
                     </Switch>
                 </ThemeProvider>
