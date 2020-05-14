@@ -5,7 +5,7 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Fab from '@material-ui/core/Fab';
 import LocalBarTwoToneIcon from '@material-ui/icons/LocalBarTwoTone';
 import { Link } from 'react-router-dom';
-import { fetchDrinksArrayTest } from '../../api';
+import { fetchDrinks } from '../../api';
 
 const useStyles = makeStyles((theme) => ({
     wrapper: {
@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const Result = () => {
+const Result = ({ ingredients }) => {
     const classes = useStyles();
     const theme = useTheme();
 
@@ -32,7 +32,7 @@ const Result = () => {
 
     useEffect(() => {
         const fetchAPI = async () => {
-            setDrinks(await fetchDrinksArrayTest());
+            setDrinks(await fetchDrinks(ingredients));
         }
         fetchAPI();
     }, []);
