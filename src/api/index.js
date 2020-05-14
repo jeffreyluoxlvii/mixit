@@ -28,7 +28,7 @@ export const fetchDrinksArrayTest = async () => {
     let drinksArray = [];
     for(let i = 0; i < ingredientArray.length; i++) {
         try {
-            let { data : {drinks} } = await axios.get(`${ingredientLookupUrl}${ingredientArray[i]}`);
+            let { data : {drinks} } = await axios.get(`${ingredientLookupUrl}${ingredientArray[i].title}`);
             drinksArray = [...new Set([...drinksArray, ...drinks])];
         } catch (error) {
             console.log(error);
@@ -42,7 +42,7 @@ export const fetchDrinks = async (ingredients) => {
     let drinksArray = [];
     for(let i = 0; i < ingredients.length; i++) {
         try {
-            let { data : {drinks} } = await axios.get(`${ingredientLookupUrl}${ingredients[i]}`);
+            let { data : {drinks} } = await axios.get(`${ingredientLookupUrl}${ingredients[i].title}`);
             drinksArray = [...new Set([...drinksArray, ...drinks])];
         } catch (error) {
             console.log(error);
@@ -51,4 +51,4 @@ export const fetchDrinks = async (ingredients) => {
     return drinksArray;
 }
 
-const ingredientArray = ["Vodka", "Tea", "Lime"];
+const ingredientArray = [{title: "Tea"}];
