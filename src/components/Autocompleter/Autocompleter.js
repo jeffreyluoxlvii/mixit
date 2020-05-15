@@ -10,7 +10,7 @@ const icon = <LocalBarOutlinedIcon fontSize="small" />;
 const checkedIcon = <LocalBarIcon fontSize="small" />;
 
 
-export default function Autocompleter(props) {
+const Autocompleter = ({ tagChange }) => {
   
   const [ingredients, setIngredients] = useState([]);
   const [pickedIng, setPickedIng] = useState([]);
@@ -35,6 +35,7 @@ export default function Autocompleter(props) {
       options={ingredients}
       disableCloseOnSelect
       getOptionLabel={(option) => option.title}
+      onChange={tagChange}
       renderOption={(option, { selected }) => (
         <React.Fragment>
           <Checkbox
@@ -55,3 +56,5 @@ export default function Autocompleter(props) {
     />
   );
 }
+
+export default Autocompleter;

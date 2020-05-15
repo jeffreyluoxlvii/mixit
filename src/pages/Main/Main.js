@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const Main = (props) => {
+const Main = ({ tagChange }) => {
     const classes = useStyles();
     const theme = useTheme();
 
@@ -45,7 +45,7 @@ const Main = (props) => {
         <div className={classes.wrapper}>
             <Header />
             <Typography variant="h4" className={classes.padding}>enter ingredients</Typography>
-            <Autocompleter handleChange = {props.handleChange}/>
+            <Autocompleter tagChange={ tagChange }/>
             <div>
                 <Link to="/result" className={classes.link} >
                     <ButtonBase focusRipple className={classes.button}>

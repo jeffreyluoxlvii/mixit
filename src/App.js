@@ -45,11 +45,15 @@ const theme = createMuiTheme({
 
 class App extends React.Component {
     state = {
-        ing : []
+        selectedIngredients: [],
     }
 
-    handleIngredientChange = (childData) => {
-        this.setState({ing : childData})
+    onTagsChange = (event, values) => {
+        this.setState({
+          selectedIngredients: values
+        }, () => {
+          console.log(this.state.selectedIngredients);
+        });
     }
 
     render() {
@@ -58,14 +62,8 @@ class App extends React.Component {
                 <ThemeProvider theme={theme}>
                     <Switch>
                         <Route path="/" component={Landing} exact />
-                        <Route 
-                            path="/main" 
-                            render={() => <Main handleChange={this.handleIngredientChange} />}
-                        />
-                        <Route 
-                            path="/result" 
-                            component={Result}
-                        />
+                        <Route path="/main" render={(props) => <Main {...props} tagChange={this.onTagsChange} />} />
+                        <Route path="/result" render={(props) => <Result {...props} ingredients={this.state.selectedIngredients} />} />
                     </Switch>
                 </ThemeProvider>
             </main>
