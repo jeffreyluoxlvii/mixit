@@ -11,8 +11,13 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 345,
+    width: 350,
   },
+  container: {
+    padding: '10px',
+    display: 'inline-block',
+  },
+
   media: {
     height: 0,
     paddingTop: '56.25%', // 16:9
@@ -27,8 +32,8 @@ const useStyles = makeStyles((theme) => ({
   expandOpen: {
     transform: 'rotate(180deg)',
   },
-  avatar: {
-    backgroundColor: red[500],
+  header: {
+    height: 100,
   },
 }));
 
@@ -39,15 +44,18 @@ const DrinkCard = (props) => {
    * this.props.image
    */
   return (
-    <Card className={classes.root}>
-      <CardHeader
-        title={props.name}
-      />
-      <CardMedia
-        className={classes.media}
-        image={props.image}
-      />
-    </Card>
+    <div className={classes.container}>
+      <Card className={classes.root}>
+        <CardHeader
+          className={classes.header}
+          title={props.name}
+        />
+        <CardMedia
+          className={classes.media}
+          image={props.image}
+        />
+      </Card>
+    </div>
   );
 }
 export default DrinkCard;

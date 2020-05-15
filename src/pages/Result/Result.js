@@ -22,6 +22,9 @@ const useStyles = makeStyles((theme) => ({
         bottom: theme.spacing(2),
         right: theme.spacing(2),
     },
+    scroll: {
+        height: '80%',
+    }
 }));
 
 const Result = () => {
@@ -43,7 +46,7 @@ const Result = () => {
         <div className={classes.wrapper}>
             <Header />
             <Typography variant="h4" className={classes.padding}>Here are the drinks you can make:</Typography>
-            <Scroll>
+            <Scroll className={classes.scroll}>
                 <DrinkCardList drinks={drinks} />
             </Scroll>
             <div>

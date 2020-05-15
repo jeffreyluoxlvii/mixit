@@ -35,15 +35,17 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const Main = () => {
+const Main = (props) => {
     const classes = useStyles();
     const theme = useTheme();
+
+
 
     return (
         <div className={classes.wrapper}>
             <Header />
             <Typography variant="h4" className={classes.padding}>enter ingredients</Typography>
-            <Autocompleter />
+            <Autocompleter handleChange = {props.handleChange}/>
             <div>
                 <Link to="/result" className={classes.link} >
                     <ButtonBase focusRipple className={classes.button}>

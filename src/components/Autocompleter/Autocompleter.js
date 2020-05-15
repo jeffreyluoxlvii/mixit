@@ -10,10 +10,10 @@ const icon = <LocalBarOutlinedIcon fontSize="small" />;
 const checkedIcon = <LocalBarIcon fontSize="small" />;
 
 
-export default function Autocompleter() {
+export default function Autocompleter(props) {
   
   const [ingredients, setIngredients] = useState([]);
-
+  const [pickedIng, setPickedIng] = useState([]);
   useEffect(() => {
       const fetchAPI = async () => {            
         setIngredients(await fetchIngredients());
@@ -21,6 +21,12 @@ export default function Autocompleter() {
       fetchAPI();
 
   }, []);
+
+  const onIngredientChange = (event, values) => {
+    setPickedIng(values)
+    console.log(pickedIng)
+    this.props.handleChange(pickedIng);
+  }
 
   return (
     <Autocomplete
@@ -34,6 +40,7 @@ export default function Autocompleter() {
           <Checkbox
             color = 'primary'
             icon={icon}
+            onChange={onIngredientChange}
             checkedIcon={checkedIcon}
             style={{ marginRight: 8 }}
             checked={selected}

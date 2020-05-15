@@ -44,14 +44,28 @@ const theme = createMuiTheme({
 });
 
 class App extends React.Component {
+    state = {
+        ing : []
+    }
+
+    handleIngredientChange = (childData) => {
+        this.setState({ing : childData})
+    }
+
     render() {
         return (
             <main>
                 <ThemeProvider theme={theme}>
                     <Switch>
                         <Route path="/" component={Landing} exact />
-                        <Route path="/main" component={Main} />
-                        <Route path="/result" component={Result} />
+                        <Route 
+                            path="/main" 
+                            render={() => <Main handleChange={this.handleIngredientChange} />}
+                        />
+                        <Route 
+                            path="/result" 
+                            component={Result}
+                        />
                     </Switch>
                 </ThemeProvider>
             </main>
