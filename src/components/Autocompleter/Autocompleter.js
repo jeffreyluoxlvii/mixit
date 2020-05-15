@@ -13,7 +13,7 @@ const checkedIcon = <LocalBarIcon fontSize="small" />;
 const Autocompleter = ({ tagChange }) => {
   
   const [ingredients, setIngredients] = useState([]);
-
+  const [pickedIng, setPickedIng] = useState([]);
   useEffect(() => {
       const fetchAPI = async () => {            
         setIngredients(await fetchIngredients());
@@ -21,6 +21,12 @@ const Autocompleter = ({ tagChange }) => {
       fetchAPI();
 
   }, []);
+
+  const onIngredientChange = (event, values) => {
+    setPickedIng(values)
+    console.log(pickedIng)
+    this.props.handleChange(pickedIng);
+  }
 
   return (
     <Autocomplete
@@ -35,6 +41,7 @@ const Autocompleter = ({ tagChange }) => {
           <Checkbox
             color = 'primary'
             icon={icon}
+            onChange={onIngredientChange}
             checkedIcon={checkedIcon}
             style={{ marginRight: 8 }}
             checked={selected}
