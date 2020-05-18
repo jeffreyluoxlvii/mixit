@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
+import ButtonBase from '@material-ui/core/ButtonBase';
 import CardActionArea from '@material-ui/core/CardActionArea';
+import Modal from '@material-ui/core/Modal';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -37,26 +39,42 @@ const useStyles = makeStyles((theme) => ({
 
 const DrinkCard = (props) => {
   const classes = useStyles();
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  }
+
+  const handleClose = () => {
+    setOpen(false);
+  }
+
   /**
    * this.props.name
    * this.props.image
    */
   return (
-    <div className={classes.container}>
-      <Card className={classes.root}>
-      <CardActionArea>
-        <CardMedia
-          className={classes.media}
-          image={props.image}
-        />
-        <CardContent>
-          <Typography>
-            {props.name}
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-    </Card>
-    </div>
+      <div className={classes.container}>
+        <Card className={classes.root} onClick={() => alert("Hello from here")}>
+          <CardActionArea>
+          <CardMedia
+            className={classes.media}
+            image={props.image}
+          />
+          <CardContent>
+            <Typography>
+              {props.name}
+            </Typography>
+          </CardContent>
+          </CardActionArea>
+      </Card>
+      {/* <Modal
+        open={open}
+        onClose={handleClose}
+      >
+        Hello World
+      </Modal> */}
+      </div>
   );
 }
 export default DrinkCard;
