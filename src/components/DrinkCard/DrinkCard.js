@@ -17,7 +17,14 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(3,3),
     display: 'inline-block',
   },
-
+  paper: {
+    position: 'absolute',
+    width: 400,
+    backgroundColor: theme.palette.background.paper,
+    border: '2px solid #000',
+    boxShadow: theme.shadows[5],
+    padding: theme.spacing(2, 4, 3),
+  },
   media: {
     height: 0,
     paddingTop: '56.25%', // 16:9
@@ -43,6 +50,7 @@ const DrinkCard = (props) => {
 
   const handleOpen = () => {
     setOpen(true);
+    console.log("clicked");
   }
 
   const handleClose = () => {
@@ -55,7 +63,7 @@ const DrinkCard = (props) => {
    */
   return (
       <div className={classes.container}>
-        <Card className={classes.root} onClick={() => alert("Hello from here")}>
+        <Card className={classes.root} onClick={handleOpen}>
           <CardActionArea>
           <CardMedia
             className={classes.media}
@@ -68,12 +76,15 @@ const DrinkCard = (props) => {
           </CardContent>
           </CardActionArea>
       </Card>
-      {/* <Modal
+      <Modal
         open={open}
         onClose={handleClose}
       >
-        Hello World
-      </Modal> */}
+        <div className={classes.paper}>
+          <h1>{props.name}</h1>
+        </div>
+
+      </Modal>
       </div>
   );
 }
