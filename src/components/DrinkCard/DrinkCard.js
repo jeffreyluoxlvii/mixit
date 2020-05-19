@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
-import ButtonBase from '@material-ui/core/ButtonBase';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import Modal from '@material-ui/core/Modal';
+import { fetchDrinkData } from '../../api';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -47,10 +47,19 @@ const useStyles = makeStyles((theme) => ({
 const DrinkCard = (props) => {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
+  const [data, setData] = useState({});
+
+  useEffect(() => {
+    const fetchAPI = async () => {
+        setData(await fetchDrinkData(props.name));
+        console.log("fetching");
+    }
+    fetchAPI();
+  }, []);
 
   const handleOpen = () => {
+    console.log(data);
     setOpen(true);
-    console.log("clicked");
   }
 
   const handleClose = () => {
@@ -83,7 +92,6 @@ const DrinkCard = (props) => {
         <div className={classes.paper}>
           <h1>{props.name}</h1>
         </div>
-
       </Modal>
       </div>
   );
