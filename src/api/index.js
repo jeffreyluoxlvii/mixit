@@ -2,6 +2,7 @@ import axios from 'axios';
 
 const ingredientsUrl = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list';
 const ingredientLookupUrl ='https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=';
+const drinkLookupUrl = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=';
 
 export const fetchIngredients = async () => {
     try {
@@ -25,4 +26,14 @@ export const fetchDrinks = async (ingredients) => {
         }
     }
     return drinksArray;
+}
+
+// This returns the data about a specific drink
+export const fetchDrinkData = async (drink) => {
+    try {
+        const { data : {drinks} } = await axios.get(`${drinkLookupUrl}${drink}`);
+        return drinks;
+    } catch (error) {
+        console.log(error);
+    }
 }
