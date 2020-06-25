@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import Modal from '@material-ui/core/Modal';
 import { fetchDrinkData } from '../../api';
+import { CustomModal } from '../../components/';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -24,6 +25,11 @@ const useStyles = makeStyles((theme) => ({
     border: '2px solid #000',
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
+  },
+  modal: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   media: {
     height: 0,
@@ -48,6 +54,9 @@ const DrinkCard = (props) => {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const [data, setData] = useState({});
+  const [isfetching, setFetching] = useState(true);
+
+  let instruction;
 
   useEffect(() => {
     const fetchAPI = async () => {
@@ -58,7 +67,9 @@ const DrinkCard = (props) => {
   }, []);
 
   const handleOpen = () => {
-    console.log(data);
+    instruction = data[0].strInstructions;
+    console.log(instruction);
+    setFetching(false);
     setOpen(true);
   }
 
@@ -84,15 +95,17 @@ const DrinkCard = (props) => {
             </Typography>
           </CardContent>
           </CardActionArea>
-      </Card>
-      <Modal
-        open={open}
-        onClose={handleClose}
-      >
-        <div className={classes.paper}>
-          <h1>{props.name}</h1>
-        </div>
-      </Modal>
+        </Card>
+      {isfetching ? <Typography></Typography> :       
+        <Modal
+          open={open}
+          onClose={handleClose}
+        >
+          <div className={classes.paper}>
+            <h1>{data[0].strInstructions}</h1>
+          </div>
+        </Modal>
+      }
       </div>
   );
 }
