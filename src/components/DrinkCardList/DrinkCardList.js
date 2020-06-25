@@ -12,7 +12,6 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-
 const DrinkCardList = ({ drinks }) => {
     return (
         <div> {
