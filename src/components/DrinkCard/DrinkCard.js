@@ -56,8 +56,6 @@ const DrinkCard = (props) => {
   const [data, setData] = useState({});
   const [isfetching, setFetching] = useState(true);
 
-  let instruction;
-
   useEffect(() => {
     const fetchAPI = async () => {
         setData(await fetchDrinkData(props.name));
@@ -67,8 +65,6 @@ const DrinkCard = (props) => {
   }, []);
 
   const handleOpen = () => {
-    instruction = data[0].strInstructions;
-    console.log(instruction);
     setFetching(false);
     setOpen(true);
   }
@@ -100,6 +96,7 @@ const DrinkCard = (props) => {
         <Modal
           open={open}
           onClose={handleClose}
+          className={classes.modal}
         >
           <div className={classes.paper}>
             <h1>{data[0].strInstructions}</h1>
