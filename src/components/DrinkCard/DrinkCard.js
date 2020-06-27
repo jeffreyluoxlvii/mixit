@@ -12,15 +12,22 @@ import { fetchDrinkData } from '../../api';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: 450,
+    width: 250,
+    [theme.breakpoints.up('sm')]: {
+      width: 300,
+    },
+    [theme.breakpoints.up('md')]: {
+      width: 450,
+    },
   },
   container: {
-    padding: theme.spacing(3,3),
+    padding: theme.spacing(2,2),
     display: 'inline-block',
   },
   paper: {
     position: 'absolute',
-    width: 400,
+    color: 'FCFAFA',
+    width: 350,
     backgroundColor: theme.palette.background.paper,
     border: '2px solid #000',
     boxShadow: theme.shadows[5],
@@ -98,7 +105,7 @@ const DrinkCard = (props) => {
    */
   return (
       <div className={classes.container}>
-        <Card className={classes.root} onClick={handleOpen}>
+        <Card className={classes.root} onClick={handleOpen} >
           <CardActionArea>
           <CardMedia
             className={classes.media}
