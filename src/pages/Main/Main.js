@@ -43,7 +43,7 @@ const Main = ({ tagChange }) => {
 
     return (
         <div className={classes.wrapper}>
-            <Header />
+            {/* <Header /> */}
             <Typography variant="h4" className={classes.padding}>enter ingredients</Typography>
             <Autocompleter tagChange={ tagChange }/>
             <div>
