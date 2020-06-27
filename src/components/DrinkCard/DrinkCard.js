@@ -7,7 +7,6 @@ import Typography from '@material-ui/core/Typography';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import Modal from '@material-ui/core/Modal';
 import { fetchDrinkData } from '../../api';
-import { CustomModal } from '../../components/';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -54,18 +53,30 @@ const DrinkCard = (props) => {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const [data, setData] = useState({});
-  const [isfetching, setFetching] = useState(true);
+  const [isFetching, setFetching] = useState(true);
+  // ingredients will be an array of objects, in which each object has ingredient as key and measure as value
+  const [ingredients, setIngredients] = useState([]);
 
   useEffect(() => {
     const fetchAPI = async () => {
-        setData(await fetchDrinkData(props.name));
-        console.log("fetching");
+        const response = await fetchDrinkData(props.name);
+        setData(response);
+        console.log(response[0]);
+        for(var i = 1; i < 16; i++) {
+          const ingredient = {
+            name: response[0][`strIngredient${i}`],
+            measurement: response[0][`strMeasure${i}`]
+          }
+          if(ingredient.name) {
+            ingredients.push(ingredient);
+          }
+        }
+        setFetching(false);
     }
     fetchAPI();
   }, []);
 
   const handleOpen = () => {
-    setFetching(false);
     setOpen(true);
   }
 
@@ -92,14 +103,21 @@ const DrinkCard = (props) => {
           </CardContent>
           </CardActionArea>
         </Card>
-      {isfetching ? <Typography></Typography> :       
+      {isFetching ? <Typography></Typography> :       
         <Modal
           open={open}
           onClose={handleClose}
           className={classes.modal}
         >
           <div className={classes.paper}>
-            <h1>{data[0].strInstructions}</h1>
+            <h1>{data[0].strDrink}</h1>
+            <h2>Ingredients</h2>
+            <ol>
+            {Array.from(ingredients).map((ingredient, index) => (
+              <li>{ingredient.measurement}{ingredient.name}</li>
+            ))}
+            </ol>
+            <h3>{data[0].strInstructions}</h3>
           </div>
         </Modal>
       }
