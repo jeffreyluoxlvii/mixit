@@ -62,8 +62,8 @@ class App extends React.Component {
                 <ThemeProvider theme={theme}>
                     <Switch>
                         <Route exact path={`/`} component={Landing} exact />
-                        <Route path="/main" render={(props) => <Main {...props} tagChange={this.onTagsChange} />} />
-                        <Route path="/result" render={(props) => <Result {...props} ingredients={this.state.selectedIngredients} />} />
+                        <Route exact path={`/main`} render={(props) => <Main {...props} tagChange={this.onTagsChange} />} />
+                        <Route exact path={`/result`} render={(props) => <Result {...props} ingredients={this.state.selectedIngredients} />} />
                     </Switch>
                 </ThemeProvider>
             </main>
