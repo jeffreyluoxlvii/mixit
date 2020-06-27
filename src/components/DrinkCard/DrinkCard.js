@@ -11,15 +11,15 @@ import { fetchDrinkData } from '../../api';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: 450,
+    width: 250,
   },
   container: {
-    padding: theme.spacing(3,3),
+    padding: theme.spacing(1,1),
     display: 'inline-block',
   },
   paper: {
     position: 'absolute',
-    width: 400,
+    width: 350,
     backgroundColor: theme.palette.background.paper,
     border: '2px solid #000',
     boxShadow: theme.shadows[5],
