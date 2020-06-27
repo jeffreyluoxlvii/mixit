@@ -5,6 +5,11 @@ import Toolbar from '@material-ui/core/Toolbar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import { Typography } from '@material-ui/core';
+import Fab from '@material-ui/core/Fab';
+import LocalBarTwoToneIcon from '@material-ui/icons/LocalBarTwoTone';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
+
+import logo from '../../images/bottle.png'
 
 function ElevationScroll(props) {
   const { children, window } = props;
@@ -31,13 +36,26 @@ ElevationScroll.propTypes = {
   window: PropTypes.func,
 };
 
+const useStyles = makeStyles((theme) => ({
+  fab: {
+    alignItems: 'center',
+  },
+  image: {
+    height: 'auto',
+    width: '4%',
+},
+}));
+
 export default function Header(props) {
+  const classes = useStyles();
   return (
     <React.Fragment>
       <CssBaseline />
       <ElevationScroll {...props}>
-        <AppBar>
+        <AppBar color={'secondary'}>
           <Toolbar>
+            {/* <img alt="logo" className={classes.image} src={logo}/> */}
+            {/* <Typography> Mixit </Typography> */}
           </Toolbar>
         </AppBar>
       </ElevationScroll>

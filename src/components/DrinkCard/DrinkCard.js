@@ -6,19 +6,27 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import Modal from '@material-ui/core/Modal';
+import CloseIcon from '@material-ui/icons/Close';
 import { fetchDrinkData } from '../../api';
 
 
 const useStyles = makeStyles((theme) => ({
   root: {
     width: 250,
+    [theme.breakpoints.up('sm')]: {
+      width: 300,
+    },
+    [theme.breakpoints.up('md')]: {
+      width: 450,
+    },
   },
   container: {
-    padding: theme.spacing(1,1),
+    padding: theme.spacing(2,2),
     display: 'inline-block',
   },
   paper: {
     position: 'absolute',
+    color: 'FCFAFA',
     width: 350,
     backgroundColor: theme.palette.background.paper,
     border: '2px solid #000',
@@ -47,6 +55,13 @@ const useStyles = makeStyles((theme) => ({
   header: {
     height: 80,
   },
+  list: {
+    fontWeight: 'bold',
+  },
+  closeButton: {
+    float: 'right',
+    cursor: 'pointer',
+  }
 }));
 
 const DrinkCard = (props) => {
@@ -90,7 +105,7 @@ const DrinkCard = (props) => {
    */
   return (
       <div className={classes.container}>
-        <Card className={classes.root} onClick={handleOpen}>
+        <Card className={classes.root} onClick={handleOpen} >
           <CardActionArea>
           <CardMedia
             className={classes.media}
@@ -110,13 +125,20 @@ const DrinkCard = (props) => {
           className={classes.modal}
         >
           <div className={classes.paper}>
+            <div className={classes.closeButton}>
+              <CloseIcon fontSize="small" onClick={handleClose}/>
+            </div>
+
             <h1>{data[0].strDrink}</h1>
+            <hr></hr>
             <h2>Ingredients</h2>
-            <ol>
-            {Array.from(ingredients).map((ingredient, index) => (
-              <li>{ingredient.measurement}{ingredient.name}</li>
-            ))}
-            </ol>
+            <ul className={classes.list}>
+              {Array.from(ingredients).map((ingredient, index) => (
+                <li key={index}>{ingredient.measurement}{ingredient.name}</li>
+              ))}
+            </ul>
+            <hr></hr>
+            <h2>Instructions</h2>
             <h3>{data[0].strInstructions}</h3>
           </div>
         </Modal>

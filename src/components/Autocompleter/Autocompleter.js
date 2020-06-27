@@ -49,7 +49,7 @@ const Autocompleter = ({ tagChange }) => {
           {option.title}
         </React.Fragment>
       )}
-      style={{ width: '80%' }}
+      style={{ width: '60%' }}
       renderInput={(params) => (
         <TextField {...params} variant="outlined" label="ingredients" placeholder="ingredients" />
       )}
