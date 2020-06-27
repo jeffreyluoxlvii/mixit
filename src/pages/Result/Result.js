@@ -4,6 +4,7 @@ import { Typography } from '@material-ui/core';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Fab from '@material-ui/core/Fab';
 import LocalBarTwoToneIcon from '@material-ui/icons/LocalBarTwoTone';
+import Box from '@material-ui/core/Box';
 import { Link } from 'react-router-dom';
 import { fetchDrinks } from '../../api';
 
@@ -24,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     },
     scroll: {
         height: '80%',
-    }
+    },
 }));
 
 const Result = ({ ingredients }) => {
@@ -44,7 +45,7 @@ const Result = ({ ingredients }) => {
 
     return (
         <div className={classes.wrapper}>
-            <Header />
+            {/* <Header /> */}
             <Typography variant="h4" className={classes.padding}>Here are the drinks you can make:</Typography>
             <Scroll className={classes.scroll}>
                 <DrinkCardList drinks={drinks} />
