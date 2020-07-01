@@ -15,12 +15,39 @@ export const fetchIngredients = async () => {
 }
 
 // This takes the union of the ingredient lookup
-export const fetchDrinks = async (ingredients) => {
+export const fetchDrinksUnion = async (ingredients) => {
     let drinksArray = [];
     for(let i = 0; i < ingredients.length; i++) {
         try {
             let { data : {drinks} } = await axios.get(`${ingredientLookupUrl}${ingredients[i].title}`);
+            console.log("DRINK");
+            console.log(drinks);
             drinksArray = [...new Set([...drinksArray, ...drinks])];
+            console.log(drinksArray);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    return drinksArray;
+}
+
+// Do we care about intersection? 
+export const fetchDrinksIntersection = async (ingredients) => {
+    let drinksArray = [];
+    for(let i = 0; i < ingredients.length; i++) {
+        try {
+            let { data : {drinks} } = await axios.get(`${ingredientLookupUrl}${ingredients[i].title}`);
+            if(i == 0) {
+                drinksArray = [...new Set([...drinksArray, ...drinks])];
+            }
+            else {
+                console.log("filtering");
+                drinksArray.forEach(function(drink) {
+                    console.log(`DRINK: ${drink}`);
+                    console.log(drinks.includes(drink));
+                });
+                drinksArray = drinksArray.filter(drink => drinks.includes(drink)); 
+            }
         } catch (error) {
             console.log(error);
         }

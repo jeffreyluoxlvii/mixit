@@ -6,7 +6,7 @@ import Fab from '@material-ui/core/Fab';
 import LocalBarTwoToneIcon from '@material-ui/icons/LocalBarTwoTone';
 import Box from '@material-ui/core/Box';
 import { Link } from 'react-router-dom';
-import { fetchDrinks } from '../../api';
+import { fetchDrinksUnion, fetchDrinksIntersection } from '../../api';
 
 const useStyles = makeStyles((theme) => ({
     wrapper: {
@@ -36,7 +36,7 @@ const Result = ({ ingredients }) => {
 
     useEffect(() => {
         const fetchAPI = async () => {
-            setDrinks(await fetchDrinks(ingredients));
+            setDrinks(await fetchDrinksIntersection(ingredients));
         }
         fetchAPI();
     }, []);
