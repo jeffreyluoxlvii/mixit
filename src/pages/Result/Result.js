@@ -36,7 +36,7 @@ const Result = ({ ingredients }) => {
 
     useEffect(() => {
         const fetchAPI = async () => {
-            setDrinks(await fetchDrinksIntersection(ingredients));
+            setDrinks(await fetchDrinksUnion(ingredients));
         }
         fetchAPI();
     }, []);
