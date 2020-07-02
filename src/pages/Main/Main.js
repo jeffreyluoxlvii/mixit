@@ -53,13 +53,13 @@ const Main = ({ tagChange }) => {
                     </ButtonBase>
                 </Link>
             </div>
-            <div>
+            {/* <div>
                 <Link to="" className={classes.link} >
                     <Fab color="primary" className={classes.fab} aria-label="Home">
                         <LocalBarTwoToneIcon />
                     </Fab>
                 </Link>
-            </div>
+            </div> */}
         </div>
     )
 }
