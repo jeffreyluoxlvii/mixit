@@ -12,12 +12,12 @@ const theme = createMuiTheme({
     palette: {
         primary: {
             // light: will be calculated from palette.primary.main,
-            main: '#FCFAFA',
+            main: '#000000',
             // dark: will be calculated from palette.primary.main,
             // contrastText: will be calculated to contrast with palette.primary.main
         },
         secondary: {
-            main: '#FCFAFA',
+            main: '#FCFFFF',
             // dark: will be calculated from palette.secondary.main,
             contrastText: '#ffcc00',
         },
@@ -31,17 +31,18 @@ const theme = createMuiTheme({
     },
     typography: {
         fontFamily: [
-            'Ubuntu',
-            'MuseoModerno',
-            'Notable',
             '"Space Mono"',
-            'Roboto',
-            '"Helvetica Neue"',
-            'Arial',
-            'sans-serif',
-            '"Apple Color Emoji"',
-            '"Segoe UI Emoji"',
-            '"Segoe UI Symbol"',
+            // 'Ubuntu',
+            // 'MuseoModerno',
+            // 'Notable',
+            // '"Space Mono"',
+            // 'Roboto',
+            // '"Helvetica Neue"',
+            // 'Arial',
+            // 'sans-serif',
+            // '"Apple Color Emoji"',
+            // '"Segoe UI Emoji"',
+            // '"Segoe UI Symbol"',
           ].join(','),
       },
 });

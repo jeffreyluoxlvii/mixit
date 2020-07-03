@@ -8,16 +8,34 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import Modal from '@material-ui/core/Modal';
 import CloseIcon from '@material-ui/icons/Close';
 import { fetchDrinkData } from '../../api';
+import { createMuiTheme, MuiThemeProvider } from "@material-ui/core";
 
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: 250,
+    width: 350,
+    height: 350,
     [theme.breakpoints.up('sm')]: {
       width: 300,
+      height: 300,
     },
     [theme.breakpoints.up('md')]: {
-      width: 450,
+      width: 250,
+      height: 250,
+    },
+    fontFamily : '"Space Mono"',
+    borderRadius: 0,
+  },
+  cardAction: {
+    width: 350,
+    height: 350,
+    [theme.breakpoints.up('sm')]: {
+      width: 300,
+      height: 300,
+    },
+    [theme.breakpoints.up('md')]: {
+      width: 250,
+      height: 250,
     },
   },
   container: {
@@ -37,23 +55,22 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    fontFamily : '"Space Mono"',
   },
   media: {
-    height: 0,
-    paddingTop: '56.25%', // 16:9
-  },
-  expand: {
-    transform: 'rotate(0deg)',
-    marginLeft: 'auto',
-    transition: theme.transitions.create('transform', {
-      duration: theme.transitions.duration.shortest,
-    }),
-  },
-  expandOpen: {
-    transform: 'rotate(180deg)',
-  },
-  header: {
-    height: 80,
+    // height: 0,
+    // // paddingTop: '56.25%', // 16:9
+    // paddingTop: '78.25%',
+    width: 350,
+    height: 290,
+    [theme.breakpoints.up('sm')]: {
+      width: 300,
+      height: 240,
+    },
+    [theme.breakpoints.up('md')]: {
+      width: 250,
+      height: 190,
+    },
   },
   list: {
     fontWeight: 'bold',
@@ -61,7 +78,35 @@ const useStyles = makeStyles((theme) => ({
   closeButton: {
     float: 'right',
     cursor: 'pointer',
-  }
+  },
+  card: {
+    fontFamily : '"Space Mono"',
+    borderRadius: 0,
+    // boxShadow: "none",
+    // background: 'FFFFFF',
+    '&:hover': {
+      backgroundColor: 'transparent'
+    },
+  },
+  cardContent: {
+    // paddingTop: '20%',
+    // paddingBottom: '20%',
+    width: 350,
+    height: 60,
+    [theme.breakpoints.up('sm')]: {
+      width: 300,
+      height: 60,
+    },
+    [theme.breakpoints.up('md')]: {
+      width: 250,
+      height: 60,
+    },
+  },
+  typography: {
+    fontFamily : '"Space Mono"',
+    textTransform : 'uppercase',
+    fontSize: 'small',
+  },
 }));
 
 const DrinkCard = (props) => {
@@ -71,6 +116,16 @@ const DrinkCard = (props) => {
   const [isFetching, setFetching] = useState(true);
   // ingredients will be an array of objects, in which each object has ingredient as key and measure as value
   const [ingredients, setIngredients] = useState([]);
+
+  const theme = createMuiTheme({
+    props: {
+      // Name of the component
+      MuiButtonBase: {
+        // The properties to apply
+        disableRipple: true // No more ripple, on the whole application!
+      },
+    }
+  });
 
   useEffect(() => {
     const fetchAPI = async () => {
@@ -105,14 +160,15 @@ const DrinkCard = (props) => {
    */
   return (
       <div className={classes.container}>
+        <MuiThemeProvider theme={theme}>
         <Card className={classes.root} onClick={handleOpen} >
-          <CardActionArea>
+          <CardActionArea className={classes.cardAction}>
           <CardMedia
             className={classes.media}
             image={props.image}
           />
-          <CardContent>
-            <Typography>
+          <CardContent className={classes.cardContents}>
+            <Typography className={classes.typography}>
               {props.name}
             </Typography>
           </CardContent>
@@ -143,6 +199,7 @@ const DrinkCard = (props) => {
           </div>
         </Modal>
       }
+      </MuiThemeProvider>
       </div>
   );
 }

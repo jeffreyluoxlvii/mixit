@@ -36,7 +36,8 @@ const Result = ({ ingredients }) => {
 
     useEffect(() => {
         const fetchAPI = async () => {
-            setDrinks(await fetchDrinksUnion(ingredients));
+            // setDrinks(await fetchDrinksUnion(ingredients));
+             setDrinks(await fetchDrinksIntersection(ingredients));
         }
         fetchAPI();
     }, []);
@@ -51,7 +52,7 @@ const Result = ({ ingredients }) => {
                 <DrinkCardList drinks={drinks} />
             </Scroll>
             <div>
-                <Link to="" className={classes.link} >
+                <Link to="/main" className={classes.link} >
                     <Fab color="primary" className={classes.fab} aria-label="Home">
                         <LocalBarTwoToneIcon />
                     </Fab>
